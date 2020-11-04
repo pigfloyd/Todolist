@@ -20,3 +20,5 @@ class ItemData {
         return str
     }
 }
+
+export default ItemData
