@@ -36,29 +36,29 @@
               <span class="count badge"></span>
             </a>
             <ul class="dropdown-menu">
-              <li class="total">
+              <li class="total" @click="clickCate(-1)">
                 <a>
                   全部
-                  <span class="count badge"></span>
+                  <span class="count badge">{{doFilter(-1)}}</span>
                 </a>
               </li>
               <li class="divider"></li>
-              <li>
+              <li @click="clickCate(0)">
                 <a>
                   工作
-                  <span class="count badge"></span>
+                  <span class="count badge">{{doFilter(0)}}</span>
                 </a>
               </li>
-              <li>
+              <li @click="clickCate(1)">
                 <a>
                   生活
-                  <span class="count badge"></span>
+                  <span class="count badge">{{doFilter(1)}}</span>
                 </a>
               </li>
-              <li>
+              <li @click="clickCate(2)">
                 <a>
                   学习
-                  <span class="count badge"></span>
+                  <span class="count badge">{{doFilter(2)}}</span>
                 </a>
               </li>
             </ul>
@@ -77,6 +77,18 @@ export default class MenuBar extends Vue{
   doShow() {
     this.$store.state.transMemo = new ItemData()
     this.$store.state.isShow = true
+  }
+  doFilter(cid: number): number {
+    if(cid == -1){
+      return this.$store.state.aHelper.memoList.length
+    } else {
+      return this.$store.state.aHelper.memoList.filter((ele: any) => {
+        return ele.categoryId == cid
+      }).length
+    }
+  }
+  clickCate(cid: number) {
+    this.$store.state.filterCateId = cid
   }
 }
 </script>

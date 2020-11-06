@@ -9,7 +9,8 @@ let store = new Vuex.Store({
         title: '这是vuex',
         aHelper: new ActionHelper(),
         isShow: false,
-        transMemo: null
+        transMemo: null,
+        filterCateId: -1
     },
     mutations: {
         showEditMemo(state: any, editMemo: any){
