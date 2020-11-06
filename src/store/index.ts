@@ -7,10 +7,15 @@ Vue.use(Vuex)
 let store = new Vuex.Store({
     state: {
         title: '这是vuex',
-        aHelper: new ActionHelper()
+        aHelper: new ActionHelper(),
+        isShow: false,
+        transMemo: null
     },
     mutations: {
-
+        showEditMemo(state: any, editMemo: any){
+            state.transMemo = editMemo
+            state.isShow = true
+        }
     }
 })
 

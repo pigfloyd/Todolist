@@ -24,7 +24,7 @@
             <a class="create-new dropdown-toggle"
                data-toggle="dropdown">新建</a>
             <ul class="dropdown-menu">
-              <li>
+              <li @click="doShow">
                 <a>文本便签</a>
               </li>
             </ul>
@@ -71,8 +71,12 @@
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator'
+import ItemData from '../model/ItemData'
 @Component
 export default class MenuBar extends Vue{
-
+  doShow() {
+    this.$store.state.transMemo = new ItemData()
+    this.$store.state.isShow = true
+  }
 }
 </script>

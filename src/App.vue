@@ -2,6 +2,7 @@
   <div id="app">
     <MenuBar/>
     <ItemList/>
+    <MemoEditor v-if="this.$store.state.isShow"/>
   </div>
 </template>
 
@@ -9,10 +10,12 @@
 import { Component, Vue } from 'vue-property-decorator';
 import MenuBar from './components/MenuBar.vue'
 import ItemList from './components/ItemList.vue'
+import MemoEditor from './components/MemoEditor.vue'
 @Component({
   components: {
     MenuBar,
-    ItemList
+    ItemList,
+    MemoEditor
   },
 })
 export default class App extends Vue {}
